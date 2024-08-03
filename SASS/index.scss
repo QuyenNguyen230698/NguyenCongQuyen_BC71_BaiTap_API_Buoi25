@@ -1,0 +1,158 @@
+// variables
+$color-blue-1: #2a73dd;
+$color-blue-2: #1d365e;
+$color-white-1: #e2ebfc;
+$color-white-2: #656774;
+$color-white-3: #F5F9FD;
+
+// mixin ~ tuong tu function 
+@mixin button-theme($color,$bg-color,$bd-color)
+{
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: $color;
+    background-color: $bg-color;
+    border: 2px solid $bd-color;
+}
+
+@mixin shawdow-theme($base) {
+    box-shadow: $base * 1px $base * 1px $base * 2px #e2ebfc, $base * -2px $base * -1px $base * 2px #fff;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+body {
+    background-color: $color-white-3;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $color-white-3;
+  box-shadow: 0 2px 4px $color-white-1;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+
+    a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: $color-blue-2;
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s;
+      &:hover,
+      &.active {
+        color: $color-blue-1;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: $color-blue-1;
+        transition: 0.3s;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      &:hover::before,
+      &.active::before {
+        width: 100%;
+      }
+    }
+    .logo {
+      font-size: 24px;
+      color: $color-blue-1;
+      font-weight: 700;
+    }
+  }
+}
+
+.banner {
+    height: 100vh;
+    background: url(/img/product-header-bg.jpg);
+    background-size: cover;
+    background-position: bottom;
+  .container {
+    display: flex;
+        // chỉnh tách với fixed top
+        height: 100%;
+        align-items: center;
+  }
+  .title {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+      font-size: 70px;
+      font-weight: 700;
+      color: $color-blue-1;
+    }
+    h3 {
+        font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-blue-2;
+    letter-spacing: 0.015rem;
+    margin-bottom: 30px;
+    }
+    p {
+        font-size: 1.1rem;
+    font-weight: 400;
+    color: $color-white-2;
+    margin-bottom: 25px;
+    }
+    .info {
+        @include button-theme($color-blue-1,$color-white-3,$color-blue-1); // gọi mixin đã khai báo ở trên
+    }
+    .shop {
+        @include button-theme($color-white-3,$color-blue-1,$color-blue-1); // gọi mixin đã khai báo ở trên
+    }
+  }
+  .img {
+    width: 50%;
+    img {
+      width: 80%;
+    }
+  }
+}
+
+
+.products {
+    img {
+        width: 100%;
+    }
+    .container {
+        .title {
+            margin: 70px 0;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $color-blue-2;
+    letter-spacing: 0.015rem;
+        }
+    }
+    .item {
+        @include shawdow-theme(6);
+        img {
+            width: 100%;
+            @include shawdow-theme(6);
+        }
+    }
+    .col-4 {
+        padding: 30px;
+    }
+    button {
+        @include button-theme($color-blue-1,$color-white-3,$color-white-3);
+        @include shawdow-theme(2);
+        border-radius:8px;
+        padding: 8px 20px;
+    } & button:hover {
+        box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
+    }
+}

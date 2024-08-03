@@ -1,5 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
 body {
-  background-color: #F5F9FD;
+  color: #636363;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1199px;
+  margin: auto;
+}
+
+.btn_gradient {
+  padding: 20px 35px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, #f55f8d 0, #f8ae56 51%, #f55f8d 100%);
+  background-size: 200%;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  line-height: 1.2;
+  transition: all 0.5s;
+}
+.btn_gradient:hover {
+  background-position: right center;
 }
 
 header {
@@ -7,139 +47,152 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: #F5F9FD;
+  align-items: center;
+  background: #f5f9fd;
   box-shadow: 0 2px 4px #e2ebfc;
+  z-index: 999;
 }
-header .container {
+header .header_content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
 }
-header .container a {
-  text-decoration: none;
-  margin-left: 20px;
-  color: #1d365e;
-  font-weight: 600;
-  position: relative;
-  transition: 0.3s;
-}
-header .container a:hover, header .container a.active {
-  color: #2a73dd;
-}
-header .container a::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: #2a73dd;
-  transition: 0.3s;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-header .container a:hover::before, header .container a.active::before {
-  width: 100%;
-}
-header .container .logo {
-  font-size: 24px;
-  color: #2a73dd;
-  font-weight: 700;
-}
-
-.banner {
-  height: 100vh;
-  background: url(/img/product-header-bg.jpg);
-  background-size: cover;
-  background-position: bottom;
-}
-.banner .container {
+header .header_content nav {
   display: flex;
-  height: 100%;
   align-items: center;
 }
-.banner .title {
-  width: 50%;
+header .header_content nav ul {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  list-style: none;
+  margin-right: 30px;
 }
-.banner .title h2 {
-  font-size: 70px;
-  font-weight: 700;
-  color: #2a73dd;
+header .header_content nav ul li {
+  padding: 55px 15px;
 }
-.banner .title h3 {
-  font-size: 1.6rem;
+header .header_content nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
   font-weight: 600;
-  color: #1d365e;
-  letter-spacing: 0.015rem;
-  margin-bottom: 30px;
+  text-transform: capitalize;
 }
-.banner .title p {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #656774;
-  margin-bottom: 25px;
+header .header_content nav ul li a span {
+  display: inline-block;
 }
-.banner .title .info {
-  border-radius: 8px;
-  padding: 10px 20px;
-  color: #2a73dd;
-  background-color: #F5F9FD;
-  border: 2px solid #2a73dd;
+header .header_content nav ul li a:hover span {
+  animation: NavSlide 0.5s 1 forwards;
+  color: #f55f8d;
 }
-.banner .title .shop {
-  border-radius: 8px;
-  padding: 10px 20px;
-  color: #F5F9FD;
-  background-color: #2a73dd;
-  border: 2px solid #2a73dd;
+header .header_content nav ul li a i {
+  font-size: 12px;
+  margin-top: -3px;
+  vertical-align: middle;
 }
-.banner .img {
-  width: 50%;
+header .header_content nav ul li:hover a {
+  color: #f55f8d;
 }
-.banner .img img {
-  width: 80%;
+@keyframes NavSlide {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.products img {
-  width: 100%;
+.carousel {
+  padding-top: 180px;
+  background-image: url();
+  background-position: top;
+  background-size: 100%;
+  overflow: hidden;
 }
-.products .container .title {
-  margin: 70px 0;
+.carousel .carousel_content {
+  display: flex;
+  align-items: center;
+}
+.carousel .carousel_content .content_left {
+  width: 60%;
+}
+.carousel .carousel_content .content_left .content_left_title p {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #f55f8d;
+}
+.carousel .carousel_content .content_left .content_left_title h2 {
+  font-size: 66px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #262626;
+}
+.carousel .carousel_content .content_left .content_left_article p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.carousel .carousel_content .content_left .content_left_article ul {
+  margin-bottom: 20px;
+}
+.carousel .carousel_content .content_left .content_left_article ul li {
+  padding: 10px 5px 10px 0;
+  font-size: 18px;
+  list-style: none;
+}
+.carousel .carousel_content .content_left .content_left_article ul li i {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
   text-align: center;
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #1d365e;
-  letter-spacing: 0.015rem;
+  border-radius: 35px;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  background-image: linear-gradient(to right, #f55f8d 0, #f8ae56 51%, #f55f8d 100%);
+  background-size: 200%;
+  margin-right: 10px;
 }
-.products .item {
-  box-shadow: 6px 6px 12px #e2ebfc, -12px -6px 12px #fff;
-  border-radius: 16px;
-  padding: 30px;
+.carousel .carousel_content .content_right {
+  width: 40%;
 }
-.products .item img {
+.carousel .carousel_content .content_right img {
   width: 100%;
-  box-shadow: 6px 6px 12px #e2ebfc, -12px -6px 12px #fff;
-  border-radius: 16px;
-  padding: 30px;
+  display: block;
 }
-.products .col-4 {
-  padding: 30px;
+
+.services {
+  background-image: url();
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  text-align: center;
+  padding-top: 115px;
 }
-.products button {
-  border-radius: 8px;
-  padding: 10px 20px;
-  color: #2a73dd;
-  background-color: #F5F9FD;
-  border: 2px solid #F5F9FD;
-  box-shadow: 2px 2px 4px #e2ebfc, -4px -2px 4px #fff;
-  border-radius: 16px;
-  padding: 30px;
-  border-radius: 8px;
-  padding: 8px 20px;
+.services .services_title {
+  display: inline;
 }
-.products button:hover {
-  box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
+.services .services_title .sanPham {
+  width: 50%;
+  padding: 0.7rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */

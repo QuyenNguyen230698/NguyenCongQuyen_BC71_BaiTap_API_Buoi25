@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/flaticon/flaticon.css" />
     <link rel="stylesheet" href="/css/index.css" />
   </head>
-  <body>
+  <body style="background-color: #f5f5fa">
     <!-- header -->
     <header>
       <section>
@@ -58,67 +58,42 @@
                 </li>
               </ul>
               <div>
-                <a class="btn_gradient" href="/GioHang/giohang.html"><span>0</span><i class="fa fa-shopping-cart"></i></a>
+                <a class="btn_gradient" href="/GioHang/giohang.html"
+                  ><span>0 </span><i class="fa fa-shopping-cart"></i
+                ></a>
               </div>
             </nav>
           </div>
         </div>
       </section>
     </header>
-    <!-- carousel -->
-    <section  id="home" class="carousel">
+    <!-- Giỏ hàng -->
+    <section id="home" class="services">
       <div class="container">
-        <div class="carousel_content">
-          <div class="content_left">
-            <div class="content_left_title">
-              <p class="animate__animated animate__fadeInUp wow">
-                Welcome to Samar Shop
-              </p>
-              <h2
-                class="animate__animated animate__fadeInUp animate__delay-1s wow"
-              >
-                Visit us today !
-              </h2>
-            </div>
-            <div class="content_left_article">
-              <p
-                class="animate__animated animate__fadeInUp animate__delay-2s wow"
-              >
-                At Samar Shop, we specialize in providing top-quality
-                smartphones and accessories to meet all your mobile needs.
-                <br />
-                Whether you’re looking for the latest flagship models or
-                budget-friendly options, we have a diverse range of phones from
-                the world’s leading brands.
-              </p>
-              <ul
-                class="animate__animated animate__fadeInUp animate__delay-3s wow"
-              >
-                <li><i class="fa fa-check"></i>Master's degree in designing</li>
-                <li><i class="fa fa-check"></i>Offerings and style!</li>
-              </ul>
-              <button
-                class="btn_gradient animate__animated animate__fadeInUp animate__delay-4s wow"
-              >
-                <a href="#Ser">GET SHOPPING</a>
-              </button>
-            </div>
-          </div>
-          <div class="content_right">
-            <div
-              class="content_right_img animate__animated animate__fadeInUp wow"
-            >
-              <img src="/img/apple-iphone-15-pro-1-1.jpg" alt="" />
-            </div>
-          </div>
+        <div class="empty">
+          <img
+            src="/img/giohangxanh.jpg"
+            alt="empty"
+            class="empty__img"
+            width="160"
+            height="160"
+          />
+          <p class="empty__message1">Giỏ hàng trống</p>
+          <p class="empty__message2">
+            Bạn tham khảo thêm các sản phẩm được Samar gợi ý bên dưới nhé!
+          </p>
         </div>
       </div>
     </section>
     <!-- Services -->
     <section id="Ser" class="services">
       <div class="container">
-        <div class="services_title animate__animated animate__fadeInUp animate__delay-1s wow">
-            <h4 class="animate__animated animate__fadeInUp wow">Our Services</h4>
+        <div
+          class="services_title animate__animated animate__fadeInUp animate__delay-1s wow"
+        >
+          <h4 class="animate__animated animate__fadeInUp wow">
+            Sản phẩm bán chạy
+          </h4>
           <select class="sanPham" id="chonSanPham">
             <option>Chọn sản phẩm</option>
             <option>Iphone</option>
@@ -126,77 +101,52 @@
           </select>
           <button class="btn_gradient" onclick="showHide()">Xác nhận</button>
         </div>
-        <div class="services_content animate__animated animate__fadeInUp animate__delay-1s wow">
-          <div id="spIphone1" class="services_item ">
-            <img src="./img/1896556097.jpeg" alt="" />
+        <div
+          class="services_content animate__animated animate__fadeInUp animate__delay-1s wow"
+        >
+          <div id="spIphone1" class="services_item">
+            <img src="/img/1896556097.jpeg" alt="" />
             <div class="desc">
-                <h3>iphoneX</h3>
-            <p>Thiết kế mang tính đột phá</p>
+              <h3>iphoneX</h3>
+              <p>Thiết kế mang tính đột phá</p>
             </div>
             <div class="price">
-                <h2>$1000</h2>
-                <button>Buy now</button>
+              <h2>$1000</h2>
+              <button>Buy now</button>
             </div>
           </div>
-          <div id="spSamsung1" class="services_item ">
-            <img src="./img/ss1.jpg" alt="" />
+          <div id="spSamsung1" class="services_item">
+            <img src="/img/ss1.jpg" alt="" />
             <div class="desc">
-                <h3>Samsung Galaxy M51</h3>
-            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+              <h3>Samsung Galaxy M51</h3>
+              <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
             </div>
             <div class="price">
-                <h2>$3500</h2>
-                <button>Buy now</button>
+              <h2>$3500</h2>
+              <button>Buy now</button>
             </div>
           </div>
-          <div id="spSamsung2" class="services_item ">
-            <img src="./img/ss2.jpg" alt="" />
+          <div id="spSamsung2" class="services_item">
+            <img src="/img/ss2.jpg" alt="" />
             <div class="desc">
-                <h3>Samsung Galaxy M22</h3>
-            <p>Thiết kế mang tính đột phá</p>
+              <h3>Samsung Galaxy M22</h3>
+              <p>Thiết kế mang tính đột phá</p>
             </div>
             <div class="price">
-                <h2>$45000</h2>
-                <button>Buy now</button>
+              <h2>$45000</h2>
+              <button>Buy now</button>
             </div>
           </div>
-          <div id="spIphone2" class="services_item ">
-            <img src="./img/iphone-14-pro-max-deep-purple-001.webp" alt="" />
+          <div id="spIphone2" class="services_item">
+            <img src="/img/iphone-14-pro-max-deep-purple-001.webp" alt="" />
             <div class="desc">
-                <h3>Iphone 11</h3>
-            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+              <h3>Iphone 11</h3>
+              <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
             </div>
             <div class="price">
-                <h2>$1000</h2>
-                <button>Buy now</button>
+              <h2>$1000</h2>
+              <button>Buy now</button>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Number Project -->
-    <section id="Bl" class="number">
-      <div class="container">
-        <div class="number_content">
-          <div class="number_item">
-            <i class="flaticon-smile"></i>
-            <p><span class="counter">18</span></p>
-            <p>Store in VietNam</p>
-          </div>
-          <div class="number_item">
-            <i class="flaticon-line-chart"></i>
-            <p><span class="counter">20</span></p>
-            <p>Different partners</p>
-          </div>
-          <div class="number_item">
-            <i class="flaticon-startup"></i>
-            <p><span class="counter">30</span></p>
-            <p>Project Lunched</p>
-          </div>
-          <div class="number_item">
-            <i class="flaticon-confetti"></i>
-            <p><span class="counter">50</span></p>
-            <p>Years of experience</p>
           </div>
         </div>
       </div>
@@ -222,7 +172,7 @@
             class="footer_item animate__animated animate__fadeInUp animate__delay-1s wow"
           >
             <a href="#">
-              <img src="./img/logo-white.png" alt="" />
+              <img src="/img/logo-white.png" alt="" />
             </a>
             <ul class="footer_contact">
               <li>
@@ -436,7 +386,7 @@
     <script>
       new WOW().init();
     </script>
-    <script src="./JS/controller.js"></script>
-    <script src="./JS/index.js"></script>
+    <script src="/JS/controller.js"></script>
+    <script src="/JS/index.js"></script>
   </body>
 </html>

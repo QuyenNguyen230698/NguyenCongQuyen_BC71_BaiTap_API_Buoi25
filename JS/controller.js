@@ -24,3 +24,4 @@ function showHide() {
         samSung2.style.display = 'block';
     }
 }
+

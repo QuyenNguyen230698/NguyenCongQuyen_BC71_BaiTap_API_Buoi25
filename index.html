@@ -11,13 +11,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="/css/flaticon/flaticon.css">
+    <link rel="stylesheet" href="/css/flaticon/flaticon.css" />
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
@@ -62,7 +65,7 @@
               </ul>
               <div>
                 <button class="btn_gradient">
-                    <a href="#">LOGIN</a>
+                  <a href="#">LOGIN</a>
                 </button>
               </div>
             </nav>
@@ -76,17 +79,29 @@
         <div class="carousel_content">
           <div class="content_left">
             <div class="content_left_title">
-              <p class="animate__animated animate__fadeInUp wow">Welcome to Samar Shop</p>
-              <h2 class="animate__animated animate__fadeInUp animate__delay-1s wow">
+              <p class="animate__animated animate__fadeInUp wow">
+                Welcome to Samar Shop
+              </p>
+              <h2
+                class="animate__animated animate__fadeInUp animate__delay-1s wow"
+              >
                 Visit us today !
               </h2>
             </div>
             <div class="content_left_article">
-              <p class="animate__animated animate__fadeInUp animate__delay-2s wow">
-                At Samar Shop, we specialize in providing top-quality smartphones and accessories to meet all your mobile needs. <br />
-                Whether you’re looking for the latest flagship models or budget-friendly options, we have a diverse range of phones from the world’s leading brands.
+              <p
+                class="animate__animated animate__fadeInUp animate__delay-2s wow"
+              >
+                At Samar Shop, we specialize in providing top-quality
+                smartphones and accessories to meet all your mobile needs.
+                <br />
+                Whether you’re looking for the latest flagship models or
+                budget-friendly options, we have a diverse range of phones from
+                the world’s leading brands.
               </p>
-              <ul class=" animate__animated animate__fadeInUp animate__delay-3s wow">
+              <ul
+                class="animate__animated animate__fadeInUp animate__delay-3s wow"
+              >
                 <li><i class="fa fa-check"></i>Master's degree in designing</li>
                 <li><i class="fa fa-check"></i>Offerings and style!</li>
               </ul>
@@ -110,46 +125,59 @@
     <!-- Services -->
     <section class="services">
       <div class="container">
-        <div class="services_title">
-            <select class="sanPham" id="chonSanPham">
-                <option>Chọn sản phẩm</option>
-                <option>Iphone</option>
-                <option>Samsung</option>
-            </select>
-            <button class="btn_gradient" onclick="test()">Xác nhận</button>
+        <div class="services_title animate__animated animate__fadeInUp animate__delay-1s wow">
+            <h4 class="">Our Services</h4>
+          <select class="sanPham" id="chonSanPham">
+            <option>Chọn sản phẩm</option>
+            <option>Iphone</option>
+            <option>Samsung</option>
+          </select>
+          <button class="btn_gradient" onclick="showHide()">Xác nhận</button>
         </div>
-        <div class="services_content">
-          <div class="services_item">
+        <div class="services_content animate__animated animate__fadeInUp animate__delay-1s wow">
+          <div id="spIphone1" class="services_item ">
             <img src="./img/1896556097.jpeg" alt="" />
-            <h3>Web Development</h3>
-            <p>
-              Vestibulum a efficitur ex. Ut iaculis dapibus iaculis. Praesent
-              lacus magna, rhoncus quis magna quis.
-            </p>
+            <div class="desc">
+                <h3>iphoneX</h3>
+            <p>Thiết kế mang tính đột phá</p>
+            </div>
+            <div class="price">
+                <h2>$99.99</h2>
+                <button>Buy now</button>
+            </div>
           </div>
-          <div class="services_item">
+          <div id="spSamsung1" class="services_item ">
             <img src="./img/ss1.jpg" alt="" />
-            <h3>Strategy & Research</h3>
-            <p>
-              Vestibulum a efficitur ex. Ut iaculis dapibus iaculis. Praesent
-              lacus magna, rhoncus quis magna quis.
-            </p>
+            <div class="desc">
+                <h3>Samsung Galaxy M51</h3>
+            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+            </div>
+            <div class="price">
+                <h2>$89.99</h2>
+                <button>Buy now</button>
+            </div>
           </div>
-          <div class="services_item">
+          <div id="spSamsung2" class="services_item ">
             <img src="./img/ss2.jpg" alt="" />
-            <h3>Growth Tracking</h3>
-            <p>
-              Vestibulum a efficitur ex. Ut iaculis dapibus iaculis. Praesent
-              lacus magna, rhoncus quis magna quis.
-            </p>
+            <div class="desc">
+                <h3>Samsung Galaxy M22</h3>
+            <p>Thiết kế mang tính đột phá</p>
+            </div>
+            <div class="price">
+                <h2>$89.99</h2>
+                <button>Buy now</button>
+            </div>
           </div>
-          <div class="services_item">
+          <div id="spIphone2" class="services_item ">
             <img src="./img/apple-iphone-15-pro-1-1.jpg" alt="" />
-            <h3>Growth Tracking</h3>
-            <p>
-              Vestibulum a efficitur ex. Ut iaculis dapibus iaculis. Praesent
-              lacus magna, rhoncus quis magna quis.
-            </p>
+            <div class="desc">
+                <h3>Iphone 11</h3>
+            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+            </div>
+            <div class="price">
+                <h2>$99.99</h2>
+                <button>Buy now</button>
+            </div>
           </div>
         </div>
       </div>
@@ -419,6 +447,7 @@
     <script>
       new WOW().init();
     </script>
+    <script src="./JS/controller.js"></script>
     <script src="./JS/index.js"></script>
   </body>
 </html>

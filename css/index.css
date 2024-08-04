@@ -183,6 +183,13 @@ header .header_content nav ul li:hover a {
 .services .services_title {
   display: inline;
 }
+.services .services_title h4 {
+  font-size: 50px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #f55f8d;
+}
 .services .services_title .sanPham {
   width: 50%;
   padding: 0.7rem 0.75rem;
@@ -195,4 +202,52 @@ header .header_content nav ul li:hover a {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   align-items: center;
+}
+.services .services_content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 40px;
+  gap: 30px;
+}
+.services .services_content .services_item {
+  display: block;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px 45px;
+  border-radius: 0.5rem;
+  background: #fff;
+  -o-border-image: 100 round;
+     border-image: 100 round;
+  border: 3px solid transparent;
+  transform: translateY(0);
+  transition: all 0.5s;
+}
+.services .services_content .services_item img {
+  width: 180px;
+  height: 250px;
+}
+.services .services_content .services_item h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #262626;
+  margin: 15px 0;
+}
+.services .services_content .services_item:hover {
+  transform: translateY(-20px);
+}
+.services .services_content .services_item .price button {
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, #f55f8d 0, #f8ae56 51%, #f55f8d 100%);
+  background-size: 200%;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  line-height: 1.2;
+  transition: all 0.5s;
+}
+.services .services_content .services_item .price button:hover {
+  background-position: right center;
 }/*# sourceMappingURL=index.css.map */

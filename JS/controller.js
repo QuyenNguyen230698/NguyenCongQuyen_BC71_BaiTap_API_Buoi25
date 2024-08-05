@@ -7,12 +7,12 @@ function showHide() {
     var chonSP = document.getElementById('chonSanPham').value;
     console.log("🚀 ~ showIphone ~ chonSP:", chonSP)
 
-    if (chonSP == 'Iphone') {
+    if (chonSP == 'iphone') {
         iphone1.style.display = 'block';
         iphone2.style.display = 'block';
         samSung1.style.display = 'none';
         samSung2.style.display = 'none';
-    } else if (chonSP == 'Samsung') {
+    } else if (chonSP == 'samsung') {
         iphone1.style.display = 'none';
         iphone2.style.display = 'none';
         samSung1.style.display = 'block';

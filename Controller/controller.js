@@ -1,3 +1,6 @@
+//get API
+var urlApi =
+  "https://66a7894253c13f22a3d01bc8.mockapi.io/mydau848/api/v1/Capstone";
 
 function showHide() {
     var iphone1 = document.getElementById('spIphone1');

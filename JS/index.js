@@ -1,9 +1,5 @@
 var DSSP = [];
 
-//get API
-var urlApi =
-  "https://66a7894253c13f22a3d01bc8.mockapi.io/mydau848/api/v1/Capstone";
-
 function fetchListSP() {
   axios({
     url: urlApi,
@@ -35,7 +31,7 @@ function renderGioHang(list) {
         </div>
         <div class="product-price">${list[i].price}</div>
         <div class="product-quantity">
-          <input type="number" value="1" min="1">
+          <input id="soLuongSp" type="number" value="1" min="1">
         </div>
         <div class="product-removal">
           <button onclick="xoaSP('${list[i].id}')" class="remove-product">
@@ -47,10 +43,13 @@ function renderGioHang(list) {
     contentHTML += stringSP;
   }
   document.getElementById("tblBody").innerHTML = contentHTML;
-}
-
-function totalPrice() {
-    document.getElementById("cart-subtotal").innerHTML = total;
+    // Gán lại sự kiện cho các phần tử mới thêm vào
+    document.querySelectorAll(".product-quantity input").forEach(input => {
+        input.addEventListener('change', function () {
+          updateQuantity(this);
+        });
+      });
+      recalculateCart()
 }
 
 function renderSp(list) {

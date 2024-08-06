@@ -22,6 +22,12 @@ body {
   max-width: 1199px;
   margin: auto;
 }
+button {
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    &:hover {
+        scale: 1.1;
+    }
+}
 .btn_gradient {
   padding: 20px 35px;
   border-radius: 30px;
@@ -42,6 +48,9 @@ body {
   transition: all 0.5s;
   &:hover {
     background-position: right center;
+  }
+  a {
+    color: white;
   }
 }
 // header

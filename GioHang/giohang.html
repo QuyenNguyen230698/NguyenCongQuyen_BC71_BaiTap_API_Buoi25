@@ -33,7 +33,7 @@
             <nav>
               <ul>
                 <li>
-                  <a href="#home"
+                  <a href="/index.html"
                     ><span class="run_down">Home</span>
                     <i class="fa fa-angle-down"></i
                   ></a>
@@ -71,43 +71,44 @@
     <section id="home" class="services">
       <div class="container">
         <div class="style_main">
-            <div class="style_content" >
-                <div class="style_left">
-                    <div class="style_row">
-                        <span class="tenSP">Tên sản phẩm</span>
-                        <span>Đơn giá</span>
-                        <span>Số lượng</span>
-                        <span>Thành tiền</span>
-                        <span class="remove-all"><i class="fa fa-trash-alt"></i></span>
-                    </div>
-                    <div>
-                        <table class="table table_border">
-                            <tbody id="tblBody">
-                                <tr>
-                                    <td class="first-td">san pham</td>
-                                    <td>san pham</td>
-                                    <td>san pham</td>
-                                    <td>san pham</td>
-                                    <td><button><i class="fa fa-trash-alt"></i></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="style_right">
-                    <div class="right-inner" style="top: -102px;">
-                    <div class="stylePriceSumary">
-                        <div class="price_total">
-                            <span class="price_text">Tổng tiền</span>
-                            <div class="price_content">
-                                <span class="price_value">$0</span>
-                            </div>
-                        </div>
-                        <button class="style_btn_price">Mua hàng</button>
-                    </div></div>
-                </div>
+            
+<div id="totalPrices" style="display: none;">
+    <div class="shopping-cart">
+        <div class="column-labels">
+          <label class="product-image">Image</label>
+          <label class="product-details">Product</label>
+          <label class="product-price">Price</label>
+          <label class="product-quantity">Quantity</label>
+          <label class="product-removal">Remove</label>
+          <label class="product-line-price">Total</label>
+        </div>
+        <div id="tblBody">
+        </div>
+          <div class="totals">
+              <div class="totals-item">
+                <label>Subtotal</label>
+                <div class="totals-value" id="cart-subtotal">71.97</div>
+              </div>
+              <div class="totals-item">
+                <label>Tax (5%)</label>
+                <div class="totals-value" id="cart-tax">3.60</div>
+              </div>
+              <div class="totals-item">
+                <label>Shipping</label>
+                <div class="totals-value" id="cart-shipping">15.00</div>
+              </div>
+              <div class="totals-item totals-item-total">
+                <label>Grand Total</label>
+                <div class="totals-value" id="cart-total">90.57</div>
+              </div>
             </div>
-            <div class="empty" style="display: none;">
+          
+            <button class="checkout">Checkout</button>
+</div>
+ 
+
+</div>
+            <div id="emptys" class="empty">
                 <img
                   src="/img/giohangxanh.jpg"
                   alt="empty"
@@ -138,7 +139,7 @@
           </select>
           <button class="btn_gradient" onclick="showHide()">Xác nhận</button>
         </div>
-        <div
+        <div id="content_services"
           class="services_content animate__animated animate__fadeInUp animate__delay-1s wow"
         >
           <div id="spIphone1" class="services_item">
@@ -437,7 +438,7 @@
     </script>
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/JS/controller.js"></script>
+    <script src="/Controller/controller.js"></script>
     <script src="/JS/index.js"></script>
   </body>
 </html>

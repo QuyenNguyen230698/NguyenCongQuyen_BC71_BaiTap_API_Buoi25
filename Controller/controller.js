@@ -25,3 +25,24 @@ function showHide() {
     }
 }
 
+function getListService(id){
+    return  axios({
+         url: `${urlApi}/${id}`,
+         method: "GET",
+       })
+ }
+ 
+ function createListService(newProduct){
+     return axios({
+         url: urlApi,
+         method: "POST",
+         data: newProduct,
+       })
+ }
+
+ function deleteListService(id){
+    return axios({
+        url: `${urlApi}/${id}`,
+        method: "DELETE",
+      })
+}

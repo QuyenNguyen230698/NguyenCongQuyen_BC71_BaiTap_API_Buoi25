@@ -33,7 +33,7 @@
             <nav>
               <ul>
                 <li>
-                  <a href="#home"
+                  <a href="/index.html"
                     ><span class="run_down">Home</span>
                     <i class="fa fa-angle-down"></i
                   ></a>
@@ -117,58 +117,76 @@
     <!-- Services -->
     <section id="Ser" class="services">
       <div class="container">
-        <div class="services_title animate__animated animate__fadeInUp animate__delay-1s wow">
-            <h4 class="animate__animated animate__fadeInUp wow">Our Services</h4>
+        <div
+          class="services_title animate__animated animate__fadeInUp animate__delay-1s wow"
+        >
+          <h4 class="animate__animated animate__fadeInUp wow">
+            Sản phẩm bán chạy
+          </h4>
           <select class="sanPham" id="chonSanPham">
             <option>Chọn sản phẩm</option>
-            <option>Iphone</option>
-            <option>Samsung</option>
+            <option value="iphone">Iphone</option>
+            <option value="samsung">Samsung</option>
           </select>
           <button class="btn_gradient" onclick="showHide()">Xác nhận</button>
         </div>
-        <div class="services_content animate__animated animate__fadeInUp animate__delay-1s wow">
-          <div id="spIphone1" class="services_item ">
-            <img src="./img/1896556097.jpeg" alt="" />
+        <div id="content_services"
+          class="services_content animate__animated animate__fadeInUp animate__delay-1s wow"
+        >
+          <div id="spIphone1" class="services_item">
+            <img src="/img/iphone-x-64gb.jpg" alt="" />
             <div class="desc">
-                <h3>iphoneX</h3>
-            <p>Thiết kế mang tính đột phá</p>
+              <h3>iphoneX</h3>
+              <p>Thiết kế mang tính đột phá</p>
             </div>
             <div class="price">
-                <h2>$1000</h2>
-                <button>Buy now</button>
+              <h2>$1000</h2>
+              <div style="white-space: nowrap;">
+                <button>Mua ngay</button>
+                <button>Thêm vào Giỏ</button>
+              </div>
             </div>
           </div>
-          <div id="spSamsung1" class="services_item ">
-            <img src="./img/ss1.jpg" alt="" />
+          <div id="spSamsung1" class="services_item">
+            <img src="/img/samsung-galaxy-m51.jpg" alt="" />
             <div class="desc">
-                <h3>Samsung Galaxy M51</h3>
-            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+              <h3>Samsung Galaxy M51</h3>
+              <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
             </div>
             <div class="price">
-                <h2>$3500</h2>
-                <button>Buy now</button>
+              <h2>$3500</h2>
+              <div style="white-space: nowrap;">
+                <button>Mua ngay</button>
+                <button>Thêm vào Giỏ</button>
+              </div>
             </div>
           </div>
-          <div id="spSamsung2" class="services_item ">
-            <img src="./img/ss2.jpg" alt="" />
+          <div id="spSamsung2" class="services_item">
+            <img src="/img/samsung-galaxy-m51.jpg" alt="" />
             <div class="desc">
-                <h3>Samsung Galaxy M22</h3>
-            <p>Thiết kế mang tính đột phá</p>
+              <h3>Samsung Galaxy M22</h3>
+              <p>Thiết kế mang tính đột phá</p>
             </div>
             <div class="price">
-                <h2>$45000</h2>
-                <button>Buy now</button>
+              <h2>$45000</h2>
+              <div style="white-space: nowrap;">
+                <button>Mua ngay</button>
+                <button>Thêm vào Giỏ</button>
+              </div>
             </div>
           </div>
-          <div id="spIphone2" class="services_item ">
-            <img src="./img/iphone-14-pro-max-deep-purple-001.webp" alt="" />
+          <div id="spIphone2" class="services_item">
+            <img src="/img/1896556097.jpeg" alt="" />
             <div class="desc">
-                <h3>Iphone 11</h3>
-            <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
+              <h3>Iphone 11</h3>
+              <p>Thiết kế đột phá, màn hình tuyệt đỉnh</p>
             </div>
             <div class="price">
-                <h2>$1000</h2>
-                <button>Buy now</button>
+              <h2>$1000</h2>
+              <div style="white-space: nowrap;">
+                <button>Mua ngay</button>
+                <button>Thêm vào Giỏ</button>
+              </div>
             </div>
           </div>
         </div>
@@ -438,7 +456,7 @@
     </script>
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./JS/controller.js"></script>
-    <script src="./JS/index.js"></script>
+    <script src="/Controller/controller.js"></script>
+    <script src="/JS/index.js"></script>
   </body>
 </html>

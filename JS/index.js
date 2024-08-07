@@ -92,8 +92,8 @@ function renderSp(list) {
             <div class="price">
               <h2>${list[i].price}</h2>
               <div style="white-space: nowrap;">
-                <button onclick="themSP('${list[i].id}')">Mua ngay</button>
-                <button onclick="themSP('${list[i].id}')">Thêm vào Giỏ</button>
+                <button id="countButton" onclick="themSP('${list[i].id}')">Mua ngay</button>
+                <button id="countButton" onclick="themSP('${list[i].id}')">Thêm vào Giỏ</button>
               </div>
             </div>
           </div>`;
@@ -102,7 +102,20 @@ function renderSp(list) {
   document.getElementById("content_services").innerHTML = contentHTML;
 }
 
+let count = 0;
+        const countDisplay = document.getElementById('total-count');
+        const countButton = document.getElementById('countButton');
+
+        // Cập nhật hiển thị số đếm
+        function updateDisplay() {
+            countDisplay.textContent = `(${count})`;
+        }
+        updateDisplay();
 function themSP(id) {
+
+  count++; // Tăng số đếm
+  updateDisplay(); // Cập nhật hiển thị
+
  getListService(id).then((result) => {
         var list = result.data;
         DSSP.push(list);
@@ -110,10 +123,12 @@ function themSP(id) {
         document.getElementById("totalPrices").style.display = "block";
         document.getElementById("emptys").style.display = "none";
         console.log(DSSP)
+
           // chuyen doi DSNV thanh chuoi JSON
   var DSSPJSON = JSON.stringify(DSSP);
   // luu xuong local storage
   localStorage.setItem("DSSP_JSON", DSSPJSON);
+
     }).catch((err) => {
         console.log('err');
     });
@@ -121,6 +136,10 @@ function themSP(id) {
 
 
 function xoaSP(id) {
+
+  count--; // Tăng số đếm
+  updateDisplay(); // Cập nhật hiển thị
+
     getListService(id).then((result) => {
         var list = result.data;
         DSSP.splice(list, 1);

@@ -49,3 +49,18 @@ function getListService(id){
         method: "DELETE",
       })
 }
+
+function fixedListService(id){
+    return axios({
+        url: `${urlApi}/${id}`,
+        method: "GET",
+      })
+}
+
+function updateListService(id,sp){ 
+    return axios({
+        url: `${urlApi}/${id}`,
+        method: "PUT",
+        data:sp,
+      })
+}

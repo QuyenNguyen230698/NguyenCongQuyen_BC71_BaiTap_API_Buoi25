@@ -122,6 +122,7 @@ function themSP(id) {
         renderGioHang(DSSP)
         document.getElementById("totalPrices").style.display = "block";
         document.getElementById("emptys").style.display = "none";
+
         console.log(DSSP)
 
           // chuyen doi DSNV thanh chuoi JSON
@@ -157,3 +158,4 @@ function xoaSP(id) {
         console.log('err');
     });
 }
+

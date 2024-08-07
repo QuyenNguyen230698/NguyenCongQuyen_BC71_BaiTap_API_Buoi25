@@ -7,8 +7,8 @@ function fetchListSP() {
   })
     .then(function (res) {
       // thành công
-    //   renderGioHang(res.data);
       renderSp(res.data);
+      // renderGioHang(res.data);
     })
     .catch(function (err) {
       //thất bại
@@ -17,28 +17,55 @@ function fetchListSP() {
 }
 fetchListSP();
 
-function renderGioHang(list) {
+var data = localStorage.getItem("DSSP_JSON");
+var spArr = JSON.parse(data);
+for (var i = 0; i < spArr.length; i++) {
+  var data = spArr[i];
+  var sp = new Item(
+    data.id,
+    data.name,
+    data.price,
+    data.screen,
+    data.backCamera,
+    data.frontCamera,
+    data.img,
+    data.desc,
+    data.type
+  );
+  DSSP.push(sp);
+}
+console.log(DSSP)
+if (DSSP.length > 0) {
+  renderGioHang(DSSP);
+  document.getElementById("totalPrices").style.display = "block";
+  document.getElementById("emptys").style.display = "none";
+} else {
+  document.getElementById("totalPrices").style.display = "none";
+  document.getElementById("emptys").style.display = "block";
+}
+
+function renderGioHang(DSSP) {
   var contentHTML = "";
-  for (var i = 0; i < list.length; i++) {
+  for (var i = 0; i < DSSP.length; i++) {
     var stringSP = `
     <div class="product">
         <div class="product-image">
-          <img src="${list[i].img}">
+          <img src="${DSSP[i].img}">
         </div>
         <div class="product-details">
-          <div class="product-title">${list[i].name}</div>
-          <p class="product-description">${list[i].desc}</p>
+          <div class="product-title">${DSSP[i].name}</div>
+          <p class="product-description">${DSSP[i].desc}</p>
         </div>
-        <div class="product-price">${list[i].price}</div>
+        <div class="product-price">${DSSP[i].price}</div>
         <div class="product-quantity">
           <input id="soLuongSp" type="number" value="1" min="1">
         </div>
         <div class="product-removal">
-          <button onclick="xoaSP('${list[i].id}')" class="remove-product">
+          <button onclick="xoaSP('${DSSP[i].id}')" class="remove-product">
             Remove
           </button>
         </div>
-        <div class="product-line-price">${list[i].price}</div>
+        <div class="product-line-price">${DSSP[i].price}</div>
       </div>`;
     contentHTML += stringSP;
   }
@@ -83,15 +110,24 @@ function themSP(id) {
         document.getElementById("totalPrices").style.display = "block";
         document.getElementById("emptys").style.display = "none";
         console.log(DSSP)
+          // chuyen doi DSNV thanh chuoi JSON
+  var DSSPJSON = JSON.stringify(DSSP);
+  // luu xuong local storage
+  localStorage.setItem("DSSP_JSON", DSSPJSON);
     }).catch((err) => {
         console.log('err');
     });
 }
 
+
 function xoaSP(id) {
     getListService(id).then((result) => {
         var list = result.data;
         DSSP.splice(list, 1);
+
+        var xoaJSON = JSON.stringify(DSSP);
+    localStorage.setItem("DSSP_JSON", xoaJSON);
+
         renderGioHang(DSSP)
         console.log(DSSP)
         if (DSSP.length == 0) {

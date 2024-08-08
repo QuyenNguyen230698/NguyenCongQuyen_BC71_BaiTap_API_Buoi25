@@ -48,7 +48,7 @@ function renderGioHang(DSSP) {
   var contentHTML = "";
   for (var i = 0; i < DSSP.length; i++) {
     var stringSP = `
-    <div class="product">
+    <div class="product" >
         <div class="product-image">
           <img src="${DSSP[i].img}">
         </div>
@@ -130,8 +130,13 @@ function themSP(id) {
       renderGioHang(DSSP);
       document.getElementById("totalPrices").style.display = "block";
       document.getElementById("emptys").style.display = "none";
-
       console.log(DSSP);
+    //   var input = document.getElementById('soLuongSp');
+    // // Tăng giá trị hiện tại của input
+    // input.value = parseInt(input.value) + 1;
+    // DSSP.forEach(product => {
+    //   console.log(product.id);
+    // });
 
       // chuyen doi DSNV thanh chuoi JSON
       var DSSPJSON = JSON.stringify(DSSP);

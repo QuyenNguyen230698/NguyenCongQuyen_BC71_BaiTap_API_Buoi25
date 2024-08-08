@@ -34,7 +34,7 @@ for (var i = 0; i < spArr.length; i++) {
   );
   DSSP.push(sp);
 }
-console.log(DSSP)
+console.log(DSSP);
 if (DSSP.length > 0) {
   renderGioHang(DSSP);
   document.getElementById("totalPrices").style.display = "block";
@@ -70,17 +70,17 @@ function renderGioHang(DSSP) {
     contentHTML += stringSP;
   }
   document.getElementById("tblBody").innerHTML = contentHTML;
-    // Gán lại sự kiện cho các phần tử mới thêm vào
-    document.querySelectorAll(".product-quantity input").forEach(input => {
-        input.addEventListener('change', function () {
-          updateQuantity(this);
-        });
-      });
-      recalculateCart()
+  // Gán lại sự kiện cho các phần tử mới thêm vào
+  document.querySelectorAll(".product-quantity input").forEach((input) => {
+    input.addEventListener("change", function () {
+      updateQuantity(this);
+    });
+  });
+  recalculateCart();
 }
 
 function renderSp(list) {
-    var contentHTML = "";
+  var contentHTML = "";
   for (var i = 0; i < list.length; i++) {
     var stringSP = `
     <div id="spIphone2" class="services_item">
@@ -103,68 +103,66 @@ function renderSp(list) {
 }
 
 let count = 0;
-        const countDisplay = document.getElementById('total-count');
-        const countButton = document.getElementById('countButton');
+const countDisplay = document.getElementById("total-count");
+const countButton = document.getElementById("countButton");
 
-        function loadFromLocalStorage() {
-          const cartArray = JSON.parse(localStorage.getItem("DSSP_JSON")) || []; // Hoặc tên của key mà bạn đã lưu
-          return cartArray;
-      }
+function loadFromLocalStorage() {
+  const cartArray = JSON.parse(localStorage.getItem("DSSP_JSON")) || []; // Hoặc tên của key mà bạn đã lưu
+  return cartArray;
+}
 
-        // Cập nhật hiển thị số đếm
-        function updateDisplay() {
-          const cartArray = loadFromLocalStorage(); // Tải dữ liệu từ localStorage
-          const count = cartArray.length; // Đếm số lượng đối tượng
-          
-          // Hiển thị số lượng đối tượng bắt đầu từ 1
-          countDisplay.textContent = `(${count > 0 ? count : 0})`;
-      }
+// Cập nhật hiển thị số đếm
+function updateDisplay() {
+  const cartArray = loadFromLocalStorage(); // Tải dữ liệu từ localStorage
+  const count = cartArray.length; // Đếm số lượng đối tượng
 
-    updateDisplay(); // Cập nhật số lượng đối tượng
+  // Hiển thị số lượng đối tượng bắt đầu từ 1
+  countDisplay.textContent = `(${count > 0 ? count : 0})`;
+}
+
+updateDisplay(); // Cập nhật số lượng đối tượng
 
 function themSP(id) {
+  getListService(id)
+    .then((result) => {
+      var list = result.data;
+      DSSP.push(list);
+      renderGioHang(DSSP);
+      document.getElementById("totalPrices").style.display = "block";
+      document.getElementById("emptys").style.display = "none";
 
- getListService(id).then((result) => {
-        var list = result.data;
-        DSSP.push(list);
-        renderGioHang(DSSP)
-        document.getElementById("totalPrices").style.display = "block";
-        document.getElementById("emptys").style.display = "none";
+      console.log(DSSP);
 
-        console.log(DSSP)
+      // chuyen doi DSNV thanh chuoi JSON
+      var DSSPJSON = JSON.stringify(DSSP);
+      // luu xuong local storage
+      localStorage.setItem("DSSP_JSON", DSSPJSON);
 
-          // chuyen doi DSNV thanh chuoi JSON
-  var DSSPJSON = JSON.stringify(DSSP);
-  // luu xuong local storage
-  localStorage.setItem("DSSP_JSON", DSSPJSON);
-
-  updateDisplay(); // Cập nhật số lượng đối tượng
-
-    }).catch((err) => {
-        console.log('err');
+      updateDisplay(); // Cập nhật số lượng đối tượng
+    })
+    .catch((err) => {
+      console.log("err");
     });
 }
-
 
 function xoaSP(id) {
+  getListService(id)
+    .then((result) => {
+      var list = result.data;
+      DSSP.splice(list, 1);
 
-    getListService(id).then((result) => {
-        var list = result.data;
-        DSSP.splice(list, 1);
+      var xoaJSON = JSON.stringify(DSSP);
+      localStorage.setItem("DSSP_JSON", xoaJSON);
 
-        var xoaJSON = JSON.stringify(DSSP);
-    localStorage.setItem("DSSP_JSON", xoaJSON);
-
-        renderGioHang(DSSP)
-        console.log(DSSP)
-        if (DSSP.length == 0) {
-            document.getElementById("totalPrices").style.display = "none";
-            document.getElementById("emptys").style.display = "block";
-        }
-        updateDisplay(); // Cập nhật số lượng đối tượng
-    }).catch((err) => {
-        console.log('err');
+      renderGioHang(DSSP);
+      console.log(DSSP);
+      if (DSSP.length == 0) {
+        document.getElementById("totalPrices").style.display = "none";
+        document.getElementById("emptys").style.display = "block";
+      }
+      updateDisplay(); // Cập nhật số lượng đối tượng
+    })
+    .catch((err) => {
+      console.log("err");
     });
-
 }
-

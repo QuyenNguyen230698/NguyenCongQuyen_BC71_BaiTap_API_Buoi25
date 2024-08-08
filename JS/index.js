@@ -19,7 +19,7 @@ fetchListSP();
 
 var data = localStorage.getItem("DSSP_JSON");
 var spArr = JSON.parse(data);
-for (var i = 0; i < spArr.length; i++) {
+for (var i = 1; i < spArr.length; i++) {
   var data = spArr[i];
   var sp = new Item(
     data.id,
@@ -108,13 +108,11 @@ let count = 0;
 
         // Cập nhật hiển thị số đếm
         function updateDisplay() {
+          const count = DSSP.length;
             countDisplay.textContent = `(${count})`;
         }
         updateDisplay();
 function themSP(id) {
-
-  count++; // Tăng số đếm
-  updateDisplay(); // Cập nhật hiển thị
 
  getListService(id).then((result) => {
         var list = result.data;
@@ -133,13 +131,12 @@ function themSP(id) {
     }).catch((err) => {
         console.log('err');
     });
+
+    updateDisplay(); // Cập nhật hiển thị
 }
 
 
 function xoaSP(id) {
-
-  count--; // Tăng số đếm
-  updateDisplay(); // Cập nhật hiển thị
 
     getListService(id).then((result) => {
         var list = result.data;
@@ -157,5 +154,6 @@ function xoaSP(id) {
     }).catch((err) => {
         console.log('err');
     });
+    updateDisplay(); // Cập nhật hiển thị
 }
 

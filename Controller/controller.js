@@ -3,29 +3,30 @@ var urlApi =
   "https://66a7894253c13f22a3d01bc8.mockapi.io/mydau848/api/v1/Capstone";
 
 function showHide() {
-    var iphone1 = document.getElementById('spIphone1');
-    var iphone2 = document.getElementById('spIphone2');
-    var samSung1 = document.getElementById('spSamsung1');
-    var samSung2 = document.getElementById('spSamsung2');
-    var chonSP = document.getElementById('chonSanPham').value;
-    console.log("🚀 ~ showIphone ~ chonSP:", chonSP)
-
-    if (chonSP == 'iphone') {
-        iphone1.style.display = 'block';
-        iphone2.style.display = 'block';
-        samSung1.style.display = 'none';
-        samSung2.style.display = 'none';
-    } else if (chonSP == 'samsung') {
-        iphone1.style.display = 'none';
-        iphone2.style.display = 'none';
-        samSung1.style.display = 'block';
-        samSung2.style.display = 'block';
-    } else {
-        iphone1.style.display = 'block';
-        iphone2.style.display = 'block';
-        samSung1.style.display = 'block';
-        samSung2.style.display = 'block';
-    }
+    var chonSp = document.getElementById('chonSanPham').value;
+    axios({
+        url: urlApi,
+        method: "GET",
+      })
+        .then(function (res) {
+          // thành công
+          var chonSanPham = res.data;
+          var spIphone = [];
+          spIphone.push(chonSanPham[0],chonSanPham[3]);
+          var spSamsung = [];
+          spSamsung.push(chonSanPham[1],chonSanPham[2]);
+          if (chonSp == 'iphone'){
+            renderSp(spIphone)
+          } else if (chonSp == 'samsung'){
+            renderSp(spSamsung);
+          } else {
+            renderSp(chonSanPham)
+          }
+        })
+        .catch(function (err) {
+          //thất bại
+          console.log(err);
+        });
 }
 
 

@@ -46,13 +46,11 @@ let count = 0;
 
         // Cập nhật hiển thị số đếm
         function updateDisplay() {
+            const count = DSSP.length;
             countDisplay.textContent = `(${count})`;
         }
         updateDisplay();
 function themSP(id) {
-
-  count++; // Tăng số đếm
-  updateDisplay(); // Cập nhật hiển thị
 
  getListService(id).then((result) => {
         var list = result.data;
@@ -69,4 +67,5 @@ function themSP(id) {
     }).catch((err) => {
         console.log('err');
     });
+      updateDisplay(); // Cập nhật hiển thị
 }

@@ -1,5 +1,5 @@
-var DSSP = [];
-
+var DSSP = []; // clone API
+var gioHang = []; // push sản phẩm vào giỏ hàng
 function fetchListSP() {
   axios({
     url: urlApi,
@@ -7,8 +7,8 @@ function fetchListSP() {
   })
     .then(function (res) {
       // thành công
-      renderSp(res.data);
-      // renderGioHang(res.data);
+      DSSP = [...res.data]; // clone API
+      renderSp(DSSP);
     })
     .catch(function (err) {
       //thất bại
@@ -17,7 +17,7 @@ function fetchListSP() {
 }
 fetchListSP();
 
-var data = localStorage.getItem("DSSP_JSON");
+var data = localStorage.getItem("GIOHANG_JSON");
 var spArr = JSON.parse(data);
 for (var i = 0; i < spArr.length; i++) {
   var data = spArr[i];
@@ -30,13 +30,14 @@ for (var i = 0; i < spArr.length; i++) {
     data.frontCamera,
     data.img,
     data.desc,
-    data.type
+    data.type,
+    data.quantity
   );
-  DSSP.push(sp);
+  gioHang.push(sp);
 }
-console.log(DSSP);
-if (DSSP.length > 0) {
-  renderGioHang(DSSP);
+console.log(gioHang);
+if (gioHang.length > 0) {
+  renderGioHang(gioHang);
   document.getElementById("totalPrices").style.display = "block";
   document.getElementById("emptys").style.display = "none";
 } else {
@@ -44,28 +45,28 @@ if (DSSP.length > 0) {
   document.getElementById("emptys").style.display = "block";
 }
 
-function renderGioHang(DSSP) {
+function renderGioHang(gioHang) {
   var contentHTML = "";
-  for (var i = 0; i < DSSP.length; i++) {
+  for (var i = 0; i < gioHang.length; i++) {
     var stringSP = `
     <div class="product" >
         <div class="product-image">
-          <img src="${DSSP[i].img}">
+          <img src="${gioHang[i].img}">
         </div>
         <div class="product-details">
-          <div class="product-title">${DSSP[i].name}</div>
-          <p class="product-description">${DSSP[i].desc}</p>
+          <div class="product-title">${gioHang[i].name}</div>
+          <p class="product-description">${gioHang[i].desc}</p>
         </div>
-        <div class="product-price">${DSSP[i].price}</div>
+        <div class="product-price">${gioHang[i].price}</div>
         <div class="product-quantity">
           <input id="soLuongSp" type="number" value="1" min="1">
         </div>
         <div class="product-removal">
-          <button onclick="xoaSP('${DSSP[i].id}')" class="remove-product">
+          <button onclick="xoaSP('${gioHang[i].id}')" class="remove-product">
             Remove
           </button>
         </div>
-        <div class="product-line-price">${DSSP[i].price}</div>
+        <div class="product-line-price">${gioHang[i].price}</div>
       </div>`;
     contentHTML += stringSP;
   }
@@ -108,22 +109,16 @@ function themSP(id) {
   getListService(id)
     .then((result) => {
       var list = result.data;
-      DSSP.push(list);
-      renderGioHang(DSSP);
+      gioHang.push(list);
+        renderGioHang(gioHang);
       document.getElementById("totalPrices").style.display = "block";
       document.getElementById("emptys").style.display = "none";
-      console.log(DSSP);
-    //   var input = document.getElementById('soLuongSp');
-    // // Tăng giá trị hiện tại của input
-    // input.value = parseInt(input.value) + 1;
-    // DSSP.forEach(product => {
-    //   console.log(product.id);
-    // });
+      console.log("🚀 ~ .then ~ gioHang:", gioHang)
 
-      // chuyen doi DSNV thanh chuoi JSON
-      var DSSPJSON = JSON.stringify(DSSP);
+      // chuyen doi SP thanh chuoi JSON
+      var GIOHANGJSON = JSON.stringify(gioHang);
       // luu xuong local storage
-      localStorage.setItem("DSSP_JSON", DSSPJSON);
+      localStorage.setItem("GIOHANG_JSON", GIOHANGJSON);
 
       updateDisplay(); // Cập nhật số lượng đối tượng
     })
@@ -136,14 +131,15 @@ function xoaSP(id) {
   getListService(id)
     .then((result) => {
       var list = result.data;
-      DSSP.splice(list, 1);
+      gioHang.splice(list, 1);
 
-      var xoaJSON = JSON.stringify(DSSP);
-      localStorage.setItem("DSSP_JSON", xoaJSON);
+      var xoaJSON = JSON.stringify(gioHang);
+      localStorage.setItem("GIOHANG_JSON", xoaJSON);
 
-      renderGioHang(DSSP);
-      console.log(DSSP);
-      if (DSSP.length == 0) {
+      console.log("🚀 ~ .then ~ gioHang:", gioHang)
+      renderGioHang(gioHang);
+
+      if (gioHang.length == 0) {
         document.getElementById("totalPrices").style.display = "none";
         document.getElementById("emptys").style.display = "block";
       }
@@ -152,4 +148,34 @@ function xoaSP(id) {
     .catch((err) => {
       console.log("err");
     });
+}
+
+document.getElementById("muaNgay").onclick = function () {
+  var gioHang = [];
+
+  var xoaJSON = JSON.stringify(gioHang);
+  localStorage.setItem("GIOHANG_JSON", xoaJSON);
+
+  renderGioHang(gioHang);
+  console.log(gioHang);
+  if (gioHang.length == 0) {
+    document.getElementById("totalPrices").style.display = "none";
+    document.getElementById("emptys").style.display = "block";
+  }
+  updateDisplay(); // Cập nhật số lượng đối tượng
+};
+
+function clearGioHang() {
+  var gioHang = [];
+
+  var xoaJSON = JSON.stringify(gioHang);
+  localStorage.setItem("GIOHANG_JSON", xoaJSON);
+
+  renderGioHang(gioHang);
+  console.log(gioHang);
+  if (gioHang.length == 0) {
+    document.getElementById("totalPrices").style.display = "none";
+    document.getElementById("emptys").style.display = "block";
+  }
+  updateDisplay(); // Cập nhật số lượng đối tượng
 }

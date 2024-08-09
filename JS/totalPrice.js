@@ -67,3 +67,21 @@ function updateQuantity(quantityInput) {
     linePriceElement.style.opacity = 1;
   }, fadeTime);
 }
+
+let count = 0;
+const countDisplay = document.getElementById("total-count");
+const countButton = document.getElementById("countButton");
+
+function loadFromLocalStorage() {
+  const cartArray = JSON.parse(localStorage.getItem("GIOHANG_JSON")) || []; 
+  return cartArray;
+}
+
+// Cập nhật hiển thị số đếm
+function updateDisplay() {
+  const cartArray = loadFromLocalStorage(); // Tải dữ liệu từ localStorage
+  const count = cartArray.length; // Đếm số lượng đối tượng
+
+  // Hiển thị số lượng đối tượng bắt đầu từ 1
+  countDisplay.textContent = `(${count > 0 ? count : 0})`;
+}

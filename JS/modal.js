@@ -1,6 +1,6 @@
 cart = [];
 
-// Constructor
+// Constructor 
 function Item(
   id,
   name,
@@ -10,7 +10,7 @@ function Item(
   frontCamera,
   img,
   desc,
-  type
+  type,
 ) {
   this.id = id;
   this.name = name;
@@ -21,5 +21,6 @@ function Item(
   this.img = img;
   this.desc = desc;
   this.type = type;
+  this.quantity = 1;
 }
 

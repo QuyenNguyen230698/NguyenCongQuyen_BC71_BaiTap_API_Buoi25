@@ -17,6 +17,24 @@ function fetchListSP() {
 }
 fetchListSP();
 
+for (var i = 0; i < gioHang.length; i++) {
+  var data = gioHang[i];
+  var sp = new Item(
+    data.id,
+    data.name,
+    data.price,
+    data.screen,
+    data.backCamera,
+    data.frontCamera,
+    data.img,
+    data.desc,
+    data.type,
+    data.quantity
+  );
+  gioHang.push(sp);
+}
+console.log(gioHang);
+
 function renderSp(list) {
   var contentHTML = "";
   for (var i = 0; i < list.length; i++) {
@@ -61,7 +79,17 @@ function themSP(id) {
   getListService(id)
     .then((result) => {
       var list = result.data;
-      gioHang.push(list);
+      
+            // Tìm sản phẩm trong giỏ hàng
+            const existingProduct = gioHang.find(item => item.id === list.id);
+      
+            if (existingProduct) {
+              // Nếu sản phẩm đã tồn tại, tăng số lượng của nó
+              existingProduct.quantity += 1;
+            } else {
+              // Nếu sản phẩm chưa tồn tại, thêm sản phẩm mới vào giỏ hàng
+              gioHang.push({ ...list, quantity: 1 });
+            }
 
     //   document.getElementById("totalPrices").style.display = "block";
     //   document.getElementById("emptys").style.display = "none";

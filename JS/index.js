@@ -19,23 +19,11 @@ fetchListSP();
 
 var data = localStorage.getItem("GIOHANG_JSON");
 var spArr = JSON.parse(data);
-for (var i = 0; i < spArr.length; i++) {
-  var data = spArr[i];
-  var sp = new Item(
-    data.id,
-    data.name,
-    data.price,
-    data.screen,
-    data.backCamera,
-    data.frontCamera,
-    data.img,
-    data.desc,
-    data.type,
-    data.quantity
-  );
-  gioHang.push(sp);
-}
+console.log("🚀 ~ spArr:", spArr)
+
+gioHang = spArr;
 console.log(gioHang);
+
 if (gioHang.length > 0) {
   renderGioHang(gioHang);
   document.getElementById("totalPrices").style.display = "block";
@@ -48,6 +36,7 @@ if (gioHang.length > 0) {
 function renderGioHang(gioHang) {
   var contentHTML = "";
   for (var i = 0; i < gioHang.length; i++) {
+    var totalLinePrice = gioHang[i].price * gioHang[i].quantity;
     var stringSP = `
     <div class="product" >
         <div class="product-image">
@@ -59,14 +48,14 @@ function renderGioHang(gioHang) {
         </div>
         <div class="product-price">${gioHang[i].price}</div>
         <div class="product-quantity">
-          <input id="soLuongSp" type="number" value="1" min="1">
+          <input id="soLuongSp" type="number" value="${gioHang[i].quantity}" min="1">
         </div>
         <div class="product-removal">
           <button onclick="xoaSP('${gioHang[i].id}')" class="remove-product">
             Remove
           </button>
         </div>
-        <div class="product-line-price">${gioHang[i].price}</div>
+        <div class="product-line-price">${totalLinePrice.toFixed(2)}</div>
       </div>`;
     contentHTML += stringSP;
   }
@@ -109,7 +98,18 @@ function themSP(id) {
   getListService(id)
     .then((result) => {
       var list = result.data;
-      gioHang.push(list);
+
+      // Tìm sản phẩm trong giỏ hàng
+      const existingProduct = gioHang.find(item => item.id === list.id);
+      
+      if (existingProduct) {
+        // Nếu sản phẩm đã tồn tại, tăng số lượng của nó
+        existingProduct.quantity += 1;
+      } else {
+        // Nếu sản phẩm chưa tồn tại, thêm sản phẩm mới vào giỏ hàng
+        gioHang.push({ ...list, quantity: 1 });
+      }
+
         renderGioHang(gioHang);
       document.getElementById("totalPrices").style.display = "block";
       document.getElementById("emptys").style.display = "none";

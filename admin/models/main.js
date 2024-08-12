@@ -12,6 +12,7 @@ function fetchListSP() {
       // thành công
       sourceSP = [...res.data];
       renderSp(sourceSP);
+      console.log(sourceSP);
     })
     .catch(function (err) {
       //thất bại
@@ -39,6 +40,17 @@ function renderSp(data) {
 
   document.getElementById('btnthem').onclick = function(){
     var product = getValue();
+
+    var isValid = checkName(product.name,'tbName') & 
+    checkPrice(product.price,'tbPrice') &
+    checkScreen(product.screen,'tbScreen') & 
+    checkBackCamera(product.backCamera,'tbBacksp') &
+    checkFrontCamera(product.frontCamera,'tbFrontsp') & 
+    checkImg(product.img,'tbImg') &
+    checkDesc(product.desc,'tbDescsp') &
+    checkType(product.type,'tbTypesp');
+    if (!isValid) return false;
+
     sourceSP.push(product);
     console.log(sourceSP);
     createInfor(product)
@@ -68,7 +80,7 @@ function renderSp(data) {
         document.getElementById('backSP').value = product.backCamera;
         document.getElementById('frontSP').value = product.frontCamera;
         document.getElementById('hinhSP').value = product.img;
-        document.getElementById('motaSP').value = product.description;
+        document.getElementById('motaSP').value = product.desc;
         document.getElementById('typeSP').value = product.type;
         // gắn id vào modal-title
         document.getElementById('product-id').innerText = product.id;

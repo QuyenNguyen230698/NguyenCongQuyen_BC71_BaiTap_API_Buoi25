@@ -16,6 +16,13 @@
       crossorigin="anonymous"
     />
   </head>
+  <style>
+    .sp-thongbao {
+    color: red;
+    margin-left: 2px;
+    display: none;
+}
+  </style>
 
   <body>
     <div id="spinner"></div>
@@ -154,6 +161,7 @@
                   class="form-control"
                   placeholder="Nhập vào tên sản phẩm"
                 />
+                <span class="sp-thongbao" id="tbName"></span>
               </div>
               <div class="form-group">
                 <label>Price</label>
@@ -162,6 +170,7 @@
                   class="form-control"
                   placeholder="Nhập vào giá"
                 />
+                <span class="sp-thongbao" id="tbPrice"></span>
               </div>             
               <div class="form-group">
                 <label>Screen</label>
@@ -170,6 +179,7 @@
                   class="form-control"
                   placeholder="Nhập vào kích thuớc màn hình"
                 />
+                <span class="sp-thongbao" id="tbScreen"></span>
               </div>
               <div class="form-group">
                 <label>backCamera</label>
@@ -178,6 +188,7 @@
                   class="form-control"
                   placeholder="Nhập vào Mô tả camera sau"
                 />
+                <span class="sp-thongbao" id="tbBacksp"></span>
               </div>
               <div class="form-group">
                 <label>frontCamera</label>
@@ -186,6 +197,7 @@
                   class="form-control"
                   placeholder="Nhập vào Mô tả camera trước"
                 />
+                <span class="sp-thongbao" id="tbFrontsp"></span>
               </div>
               <div class="form-group">
                 <label>Image</label>
@@ -194,6 +206,7 @@
                   class="form-control"
                   placeholder="Nhập vào Hình ảnh"
                 />
+                <span class="sp-thongbao" id="tbImg"></span>
               </div>
               <div class="form-group">
                 <label>Description</label>
@@ -202,6 +215,7 @@
                   class="form-control"
                   placeholder="Nhập vào Mô tả"
                 />
+                <span class="sp-thongbao" id="tbDescsp"></span>
               </div>
               <div class="form-group">
                 <label>Type</label>
@@ -210,6 +224,7 @@
                   class="form-control"
                   placeholder="Nhập vào loại sản phẩm"
                 />
+                <span class="sp-thongbao" id="tbTypesp"></span>
               </div>
             </div>
             <!-- Modal footer -->
@@ -254,6 +269,8 @@
     <script src="/admin/services/productServices.js"></script>
     <!-- controller -->
     <script src="/admin/controllers/controller.js"></script>
+    <!-- validate -->
+    <script src="/admin/validate/validate.js"></script>
     <!-- my js -->
     <script src="/admin/models/main.js"></script>
   </body>

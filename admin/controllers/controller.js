@@ -23,10 +23,17 @@ function deleteInfor(id) {
          method: "DELETE",
        })
  }
-function updateInfor() {
+ function fixInfor(id) {
     return axios({
-         url: urlApi,
+         url: `${urlApi}/${id}`,
+         method: "GET",
+       })
+ }
+function updateInfor(id,product) {
+    return axios({
+         url: `${urlApi}/${id}`,
          method: "PUT",
+         data: product,
        })
  }
 //#endregion

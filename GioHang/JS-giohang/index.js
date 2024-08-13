@@ -151,7 +151,7 @@ function xoaSP(id) {
 }
 
 document.getElementById("muaNgay").onclick = function () {
-  var gioHang = [];
+  gioHang.splice(0, gioHang.length);
 
   var xoaJSON = JSON.stringify(gioHang);
   localStorage.setItem("GIOHANG_JSON", xoaJSON);
@@ -166,7 +166,7 @@ document.getElementById("muaNgay").onclick = function () {
 };
 
 function clearGioHang() {
-  var gioHang = [];
+  gioHang.splice(0, gioHang.length);
 
   var xoaJSON = JSON.stringify(gioHang);
   localStorage.setItem("GIOHANG_JSON", xoaJSON);

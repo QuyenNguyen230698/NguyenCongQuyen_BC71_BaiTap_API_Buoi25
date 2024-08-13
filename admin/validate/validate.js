@@ -118,7 +118,7 @@ function checkType(value) {
         domID('tbTypesp').innerText = '';
         return true;
     } else {
-        domID('tbTypesp').innerText = 'Sai tên sản phẩm !';
+        domID('tbTypesp').innerText = 'Nhập samsung hoặc iphone !';
         domID('tbTypesp').style.display = 'block';
         return false;
     }

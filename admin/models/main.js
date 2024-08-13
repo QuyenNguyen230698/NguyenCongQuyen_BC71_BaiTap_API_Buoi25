@@ -139,3 +139,14 @@ function searchEmployees() {
 document.getElementById('basic-addon2').addEventListener('click', function() {
     searchEmployees();
 });
+
+// Search prices
+function sortProducts(order) {
+    const sortedProducts = [...sourceSP].sort((a, b) => {
+      return order === 'asc' ? a.price - b.price : b.price - a.price;
+    });
+    renderSp(sortedProducts);
+  }
+
+  // Initial display
+  renderSp(sourceSP);

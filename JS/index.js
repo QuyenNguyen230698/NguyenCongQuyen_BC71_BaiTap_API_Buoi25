@@ -83,7 +83,7 @@ function renderSp(list) {
               <h2>${list[i].price}</h2>
               <div style="white-space: nowrap;">
                 <button id="countButton" onclick="themSP('${list[i].id}')">Mua ngay</button>
-                <button id="countButton" onclick="themSP('${list[i].id}')">Thêm vào Giỏ</button>
+                <button id="countButton" onclick="themSP('${list[i].id}')">Thêm Giỏ</button>
               </div>
             </div>
           </div>`;

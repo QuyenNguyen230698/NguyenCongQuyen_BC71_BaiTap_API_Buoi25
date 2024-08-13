@@ -101,3 +101,41 @@ function renderSp(data) {
 //#endregion
 
 
+function displayEmployees(category) {
+    var employeeList = document.getElementById('tblDanhSachSP');
+    employeeList.innerHTML = ''; // Xóa nội dung cũ
+
+    var filteredEmployees = sourceSP.filter(function(employee) {
+        return employee.name === category;
+    });
+    
+    if (filteredEmployees.length > 0) {
+        var contentHTML = "";
+        filteredEmployees.forEach((item, index) => {
+          var string = `<tr>
+              <td>${item.id}</td>
+              <td>${item.name}</td>
+              <td>${item.price}</td>
+              <td><img src="${item.img}" width=100 alt=""></td>
+              <td>${item.desc}</td>
+              <td style="white-space: nowrap"><button type="button" onclick="deleteSP('${item.id}')" class="btn btn-danger">Xoá</button>
+         <button type="button" onclick="fixSP('${item.id}')" class="btn btn-warning">Sửa</button></td>
+              </tr>`;
+          contentHTML += string;
+        });
+        document.getElementById("tblDanhSachSP").innerHTML = contentHTML;
+    } else {
+        document.getElementById("tblDanhSachSP").innerHTML = '<p>Không có sản phẩm nào.</p>';
+    }
+}
+
+// Hàm xử lý sự kiện tìm kiếm
+function searchEmployees() {
+    var searchName = document.getElementById('txtSearch').value.trim();
+    displayEmployees(searchName);
+}
+
+// Lắng nghe sự kiện nhấn nút tìm kiếm
+document.getElementById('basic-addon2').addEventListener('click', function() {
+    searchEmployees();
+});

@@ -125,7 +125,7 @@ function displayEmployees(category) {
         });
         document.getElementById("tblDanhSachSP").innerHTML = contentHTML;
     } else {
-        document.getElementById("tblDanhSachSP").innerHTML = '<p>Không có sản phẩm nào.</p>';
+        renderSp(sourceSP);
     }
 }
 

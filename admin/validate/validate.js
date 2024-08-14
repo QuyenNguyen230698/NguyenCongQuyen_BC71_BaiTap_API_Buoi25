@@ -94,7 +94,7 @@ function checkImg(value) {
     }
 }
 function checkDesc(value) {
-    const regex = /^[a-zA-Zàáâãèéêìíòóôõùúûüỳýđ\s]+$/;
+    const regex = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u;
     if (value == '') {
         domID('tbDescsp').innerText = "Trường này không được để trống !";
         domID('tbDescsp').style.display = "block";

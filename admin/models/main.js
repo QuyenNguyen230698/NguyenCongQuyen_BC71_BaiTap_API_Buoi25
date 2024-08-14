@@ -55,8 +55,9 @@ function renderSp(data) {
     console.log(sourceSP);
     createInfor(product)
     .then((result) => {
+        fetchListSP();
+        document.getElementById('tbSuccess').style.display = 'block';
         $("#myModal").modal("hide");
-        fetchListSP()
     }).catch((err) => {
         console.log('err');
     });
